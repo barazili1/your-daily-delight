@@ -5,7 +5,7 @@ import { TopBar } from "@/components/TopBar";
 import { Logo } from "@/components/Logo";
 import { GameHeaderStats } from "@/components/GameHeaderStats";
 import { WinFeed } from "@/components/WinFeed";
-import thimble from "@/assets/thimble.png";
+import thimble from "@/assets/thimble-new.png";
 import ball from "@/assets/steel-ball.png";
 
 export const Route = createFileRoute("/game/thimbles")({
