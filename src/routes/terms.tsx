@@ -19,7 +19,24 @@ export const Route = createFileRoute("/terms")({
   component: TermsPage,
 });
 
-const PLATFORMS = ["1xBet", "LineBet", "WinWin", "GreenBet"];
+const PLATFORMS = [
+  {
+    name: "1xBet",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMxsxWVPqzBF6_qMWxJ25eqzqcWdqmZsrH-cg8JM9iRQ&s=10",
+  },
+  {
+    name: "LineBet",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1dK-cg_C-Zfz6kaND13r7emp2fatCIu-9yfM5ftMLnA&s=10",
+  },
+  {
+    name: "WinWin",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDBd0TpCQWUvWfxuU9DfJRgEs604mfmOEr0EHZOY0b9w&s=10",
+  },
+  {
+    name: "GreenBet",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHj9Nutnq2wsx-wqcT829tUFXwZVsA49z6OXdwjIVUVw&s=10",
+  },
+];
 
 function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -153,18 +170,26 @@ function TermsPage() {
             <div className="flex flex-wrap justify-center gap-3">
               {PLATFORMS.map((p) => (
                 <button
-                  key={p}
-                  onClick={() => setPlatform(p)}
+                  key={p.name}
+                  onClick={() => setPlatform(p.name)}
                   style={{ width: 150, height: 80 }}
-                  className={`group relative overflow-hidden rounded-xl border bg-transparent text-lg font-black transition-all active:scale-95 ${
-                    platform === p
+                  className={`group relative flex flex-col items-center justify-center gap-1 overflow-hidden rounded-xl border bg-transparent text-sm font-black transition-all active:scale-95 ${
+                    platform === p.name
                       ? "border-primary text-primary shadow-[0_0_26px_rgba(144,214,0,0.35)]"
                       : "border-border text-foreground/80 hover:border-primary/50"
                   }`}
                 >
-                  {platform === p && <span className="absolute inset-0 bg-primary/10" />}
-                  <span className="relative z-10">{p}</span>
-                  {platform === p && (
+                  {platform === p.name && <span className="absolute inset-0 bg-primary/10" />}
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    loading="lazy"
+                    width={96}
+                    height={40}
+                    className="relative z-10 h-9 w-24 object-contain"
+                  />
+                  <span className="relative z-10">{p.name}</span>
+                  {platform === p.name && (
                     <span className="absolute right-2 top-2 z-10 rounded-full bg-primary p-1">
                       <Check className="h-3.5 w-3.5 text-primary-foreground" />
                     </span>

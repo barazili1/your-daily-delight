@@ -65,8 +65,8 @@ function MinesGame() {
                       loading="lazy"
                       width={120}
                       height={120}
-                      className="absolute inset-0 h-full w-full animate-scale-in object-contain p-1 drop-shadow-[0_0_10px_rgba(144,214,0,0.8)]"
-                      style={{ animationDelay: `${(gems?.indexOf(i) ?? 0) * 90}ms` }}
+                      className="absolute inset-0 h-full w-full animate-pop-in object-contain p-1 drop-shadow-[0_0_10px_rgba(144,214,0,0.8)]"
+                      style={{ animationDelay: `${(gems?.indexOf(i) ?? 0) * 110}ms` }}
                     />
                   )}
                 </div>

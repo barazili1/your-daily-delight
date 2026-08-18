@@ -55,7 +55,7 @@ function AppleGame() {
                   return (
                     <span
                       key={c}
-                      style={{ width: 45, height: 45, animationDelay: `${(rowIdxFromTop * 5 + c) * 35}ms` }}
+                      style={{ width: 45, height: 45, animationDelay: `${rowIdxFromTop * 90 + c * 45}ms` }}
                       className="animate-scale-in overflow-hidden rounded-lg border border-primary/30 bg-black/30"
                     >
                       <img src={src} alt="cell" loading="lazy" width={45} height={45} className="h-full w-full object-cover" />

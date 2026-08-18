@@ -58,12 +58,12 @@ function WildWestGame() {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-4">
+        <div className="mt-6 flex flex-row items-center justify-center gap-3">
           {Array.from({ length: mode }).map((_, i) => (
             <div
               key={i}
-              style={{ width: 150, height: 50 }}
-              className="relative flex items-center justify-center overflow-hidden rounded-xl border border-primary/40 bg-transparent backdrop-blur-sm transition"
+              style={{ width: mode === 2 ? 150 : 105, height: 60, animationDelay: `${i * 140}ms` }}
+              className="animate-fade-in relative flex items-center justify-center overflow-hidden rounded-xl border border-primary/40 bg-transparent backdrop-blur-sm transition"
             >
               <span className="text-[11px] font-black uppercase tracking-[0.25em] text-muted-foreground">
                 box {i + 1}
