@@ -170,18 +170,26 @@ function TermsPage() {
             <div className="flex flex-wrap justify-center gap-3">
               {PLATFORMS.map((p) => (
                 <button
-                  key={p}
-                  onClick={() => setPlatform(p)}
+                  key={p.name}
+                  onClick={() => setPlatform(p.name)}
                   style={{ width: 150, height: 80 }}
-                  className={`group relative overflow-hidden rounded-xl border bg-transparent text-lg font-black transition-all active:scale-95 ${
-                    platform === p
+                  className={`group relative flex flex-col items-center justify-center gap-1 overflow-hidden rounded-xl border bg-transparent text-sm font-black transition-all active:scale-95 ${
+                    platform === p.name
                       ? "border-primary text-primary shadow-[0_0_26px_rgba(144,214,0,0.35)]"
                       : "border-border text-foreground/80 hover:border-primary/50"
                   }`}
                 >
-                  {platform === p && <span className="absolute inset-0 bg-primary/10" />}
-                  <span className="relative z-10">{p}</span>
-                  {platform === p && (
+                  {platform === p.name && <span className="absolute inset-0 bg-primary/10" />}
+                  <img
+                    src={p.logo}
+                    alt={`${p.name} logo`}
+                    loading="lazy"
+                    width={96}
+                    height={40}
+                    className="relative z-10 h-9 w-24 object-contain"
+                  />
+                  <span className="relative z-10">{p.name}</span>
+                  {platform === p.name && (
                     <span className="absolute right-2 top-2 z-10 rounded-full bg-primary p-1">
                       <Check className="h-3.5 w-3.5 text-primary-foreground" />
                     </span>
