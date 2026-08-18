@@ -19,7 +19,24 @@ export const Route = createFileRoute("/terms")({
   component: TermsPage,
 });
 
-const PLATFORMS = ["1xBet", "LineBet", "WinWin", "GreenBet"];
+const PLATFORMS = [
+  {
+    name: "1xBet",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMxsxWVPqzBF6_qMWxJ25eqzqcWdqmZsrH-cg8JM9iRQ&s=10",
+  },
+  {
+    name: "LineBet",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1dK-cg_C-Zfz6kaND13r7emp2fatCIu-9yfM5ftMLnA&s=10",
+  },
+  {
+    name: "WinWin",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDBd0TpCQWUvWfxuU9DfJRgEs604mfmOEr0EHZOY0b9w&s=10",
+  },
+  {
+    name: "GreenBet",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHj9Nutnq2wsx-wqcT829tUFXwZVsA49z6OXdwjIVUVw&s=10",
+  },
+];
 
 function Reveal({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
