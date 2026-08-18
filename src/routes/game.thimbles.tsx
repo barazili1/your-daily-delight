@@ -33,8 +33,9 @@ function ThimblesGame() {
     setTimeout(() => {
       setSpinning(false);
       setWinner(pick);
-    }, 2000);
+    }, 1120);
   };
+
 
   const reset = () => {
     setSpinning(false);
