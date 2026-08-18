@@ -50,48 +50,47 @@ function ThimblesGame() {
       <div className="mx-auto max-w-md px-4 pt-4">
         <Logo size={84} />
 
-        <div className="mt-8 flex items-end justify-center gap-5" style={{ height: 200 }}>
+        <div className="mt-8 flex items-end justify-center gap-4" style={{ height: 240 }}>
           {[0, 1, 2].map((i) => (
-            <div key={i} className="relative flex flex-col items-center" style={{ width: 70 }}>
+            <div key={i} className="relative flex flex-col items-center justify-end" style={{ width: 92, height: 215 }}>
+              {/* the ball always sits under its cup — revealed only when the cup lifts */}
+              {winner === i && (
+                <img
+                  src={ball}
+                  alt="ball"
+                  loading="lazy"
+                  width={40}
+                  height={40}
+                  className="absolute bottom-0 left-1/2 z-0 h-[40px] w-[40px] -translate-x-1/2 drop-shadow-[0_0_14px_rgba(255,255,255,0.55)]"
+                />
+              )}
               <div
-                className="relative"
+                className="relative z-10"
                 style={{
-                  width: 70,
-                  height: 170,
-                  transition: "transform 400ms ease",
-                  transform: winner === i ? "translateY(-38px)" : "translateY(0)",
-                  animation: spinning
-                    ? `thimble-shuffle-${i} 0.66s ease-in-out 3`
-                    : undefined,
+                  width: 92,
+                  height: 210,
+                  transition: "transform 320ms cubic-bezier(0.22,1,0.36,1)",
+                  transform: winner === i ? "translateY(-58px)" : "translateY(0)",
+                  animation: spinning ? `thimble-shuffle-${i} 0.34s cubic-bezier(0.45,0,0.55,1) 3` : undefined,
                 }}
               >
                 <img
                   src={thimble}
                   alt="thimble"
                   loading="lazy"
-                  width={70}
-                  height={170}
-                  className="h-full w-full object-contain drop-shadow-[0_0_16px_rgba(144,214,0,0.35)]"
+                  width={92}
+                  height={210}
+                  className="h-full w-full object-contain drop-shadow-[0_0_18px_rgba(144,214,0,0.4)]"
                 />
               </div>
-              {winner === i && (
-                <img
-                  src={ball}
-                  alt="ball"
-                  loading="lazy"
-                  width={34}
-                  height={34}
-                  className="absolute bottom-0 h-[34px] w-[34px] animate-scale-in drop-shadow-[0_0_14px_rgba(255,255,255,0.5)]"
-                />
-              )}
             </div>
           ))}
         </div>
 
         <style>{`
-          @keyframes thimble-shuffle-0 { 0%{transform:translateX(0)} 50%{transform:translateX(95px) translateY(-18px)} 100%{transform:translateX(0)} }
-          @keyframes thimble-shuffle-1 { 0%{transform:translateX(0)} 50%{transform:translateX(-95px) translateY(18px)} 100%{transform:translateX(0)} }
-          @keyframes thimble-shuffle-2 { 0%{transform:translateX(0)} 50%{transform:translateX(-95px) translateY(-18px)} 100%{transform:translateX(0)} }
+          @keyframes thimble-shuffle-0 { 0%{transform:translateX(0) translateY(0)} 50%{transform:translateX(104px) translateY(-26px) rotate(6deg)} 100%{transform:translateX(0) translateY(0)} }
+          @keyframes thimble-shuffle-1 { 0%{transform:translateX(0) translateY(0)} 50%{transform:translateX(-104px) translateY(26px) rotate(-6deg)} 100%{transform:translateX(0) translateY(0)} }
+          @keyframes thimble-shuffle-2 { 0%{transform:translateX(0) translateY(0)} 50%{transform:translateX(-104px) translateY(-26px) rotate(6deg)} 100%{transform:translateX(0) translateY(0)} }
         `}</style>
 
         <div className="mt-8 flex gap-3">
